@@ -1,8 +1,26 @@
 import styled, { keyframes, css } from 'styled-components';
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+`
+
 export const GameContainer = styled.div`
   display: flex;
   flex-direction: column;
+`
+
+export const WalletConnectInfo = styled.div`
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 5px;
+  margin-right: 20rem;
+
+  & > img {
+    width: 40px;
+  }
 `
 
 export const Ocean = styled.div`

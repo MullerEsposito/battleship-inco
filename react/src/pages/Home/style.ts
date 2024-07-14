@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
-export const HomeContainer = styled.main`
+export const Container = styled.main`
   display: flex;
-  flex-direction: column;
-  align-items: center;  
-  gap: 20px;
+  justify-content: center;
+  padding: 5.68rem 10rem;
+`
+
+export const HomeContainer = styled.div`
   padding: 5.68rem 10rem;
   font-family: "Roboto", sans-serif;
 
@@ -13,7 +15,7 @@ export const HomeContainer = styled.main`
     justify-content: space-between;
   }
 
-  & img {
+  & > div > img {
     width: 700px;
   }
 `

@@ -1,18 +1,20 @@
 import { usePrivy } from "@privy-io/react-auth";
 import battleshipBanner from "../../assets/battleship-inco-banner.webp";
 import { GridIconInfo } from "./GridIconInfo";
-import { ContentBannerContainer, HomeContainer, PlayButton } from "./style";
+import { Container, ContentBannerContainer, HomeContainer, PlayButton } from "./style";
 import { Game } from "../Game";
+import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 
 export function Home() {
   const { login, authenticated } = usePrivy();
+  const { isConnected } = useWeb3ModalAccount();
 
   return (
-    <HomeContainer>
-      {authenticated ? (
+    <Container>
+      {authenticated || isConnected ? (
         <Game />
       ) : (
-        <>
+        <HomeContainer>
           <div>
             <div>
               <ContentBannerContainer>
@@ -25,8 +27,8 @@ export function Home() {
             <img src={battleshipBanner} />
           </div>
           <PlayButton onClick={login}>Sign in to play!</PlayButton>
-        </>
+        </HomeContainer>
       )}
-    </HomeContainer>
+    </Container>
   )
 }
