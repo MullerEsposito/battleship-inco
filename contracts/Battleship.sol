@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: BSD-3-Clause-Clear
 pragma solidity >=0.8.13 <0.9.0;
 
+import "fhevm/abstracts/EIP712WithModifier.sol";
 import "fhevm/lib/TFHE.sol";
 import "hardhat/console.sol";
 
-contract Battleship {
+contract Battleship is EIP712WithModifier {
     address public player1;
     address public player2;
     address public currentPlayer;
@@ -32,7 +33,7 @@ contract Battleship {
         _;
     }
 
-    constructor(address _player1, address _player2) {
+    constructor(address _player1, address _player2) EIP712WithModifier("Authorization token", "1") {
         player1 = _player1;
         player2 = _player2;
         currentPlayer = player1;
