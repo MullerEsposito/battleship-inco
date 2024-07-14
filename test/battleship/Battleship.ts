@@ -20,7 +20,6 @@ beforeEach(async function () {
 
   const battleshipContract = await deployBattleshipFixture();
   contractAddress = await battleshipContract.getAddress();
-  console.log(`${contractAddress}`);
   
   instances = await createInstances(
     contractAddress, 
@@ -55,7 +54,7 @@ describe("Battleship", function () {
       // const boardPlayer2Bytes = hre.ethers.utils.arrayify("0x" + parseInt(boardPlayer2, 2).toString(16).padStart(Math.ceil(boardPlayer2.length / 8) * 2, '0'));
       // const boardPlayer1Bytes = hre.ethers.getBytes(boardPlayer1);
       
-      const boardPlayer1Bytes = instance.bob.encrypt32(boardPlayer1);
+      const boardPlayer1Bytes = instances.bob.encrypt32(boardPlayer1);
       console.log(boardPlayer1Bytes);
 
       // await battleship.connect(player1).placeShips(boardPlayer1Bytes);
